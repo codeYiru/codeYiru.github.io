@@ -23,10 +23,11 @@ Autowireing happens by placing an instance of one bean into the desired field in
 
 private IUserService userService;
 
+{
 public void func(){
-
     userService.foo();
 
+}
 }
 
 
@@ -40,17 +41,19 @@ When sees @Autowired, Spring will look for a class that matches the property in 
 
 1. @Autowired on constructor. @Autowired is necessary when several constructors are available, and at least one must be annotated to teach the container which one it has to use.
 
+{
 public class UserService{
     
     @Autowired
     public UserService(){
 
     }
-
+}
 }
 
 2. @Autowired on setter method
 
+{
 public class UserService{
     private User user;
 
@@ -59,8 +62,10 @@ public class UserService{
         this.user = user;
     }
 }
+}
 
 3. @Autowired on Field
+{
 public class UserService{
 
     @Autowired
@@ -70,6 +75,7 @@ public class UserService{
     public void setUser(User user){
         this.user = user;
     }
+}
 }
 
 4. etc
