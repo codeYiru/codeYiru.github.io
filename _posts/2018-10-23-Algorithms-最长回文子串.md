@@ -37,13 +37,14 @@ tags:
     依次进行操作,直到遍历完所有的字符串.
 
 
-5.  ist中, 最长的一个,就是寻找到的最长的回文子串.
+5.  list中, 最长的一个,就是寻找到的最长的回文子串.
 
 
 ======================================
 
 不对不对, 可以不用栈,只要用一直遍历就可以, 需要两个指针记录位置, 一个用来遍历, 一个用来匹配.
 
+{
 
 package com.yiru.study.algorithms.strings;
 
@@ -94,7 +95,11 @@ public class TheLongestedPalindrome {
 
         return source.substring(start, end);
     }
+
 }
+
+}
+
 
 input:aacbaabcbebcbaabcjkl
 
@@ -113,6 +118,7 @@ cbaabcbebcbaabc
 
 
 =========================================================
+
 看一看,我觉得,我的方案更优化,哈哈哈!
 
 
