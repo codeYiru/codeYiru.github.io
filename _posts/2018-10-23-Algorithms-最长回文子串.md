@@ -45,7 +45,6 @@ tags:
 不对不对, 可以不用栈,只要用一直遍历就可以, 需要两个指针记录位置, 一个用来遍历, 一个用来匹配.
 
 {
-
 package com.yiru.study.algorithms.strings;
 
 public class TheLongestedPalindrome {
@@ -98,7 +97,6 @@ public class TheLongestedPalindrome {
     }
 
 }
-
 }
 
 
