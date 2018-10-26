@@ -79,7 +79,8 @@ public class TheLongestedPalindrome {
                 match--; // 如果不相等, 匹配下一个
             }
             // ! 这里忘记了, 也需要添加一个校验
-            while ((index < length )&& (match >=0) && (source.charAt(index) == source.charAt(match))) {{ //一直匹配, 直到不同为止.
+            while ((index < length )&& (match >=0) && (source.charAt(index) == source.charAt(match))) {
+                //一直匹配, 直到不同为止.
                 index++;
                 match--;
             }
