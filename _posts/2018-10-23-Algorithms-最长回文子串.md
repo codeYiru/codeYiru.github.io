@@ -45,59 +45,59 @@ tags:
 不对不对, 可以不用栈,只要用一直遍历就可以, 需要两个指针记录位置, 一个用来遍历, 一个用来匹配.
 
 {
-package com.yiru.study.algorithms.strings;
+    
+    package com.yiru.study.algorithms.strings;
+    public class TheLongestedPalindrome {
 
-public class TheLongestedPalindrome {
+        public static void main(String[] args) {
 
-    public static void main(String[] args) {
+            String source = "aacbaabcbebcbaabcjkl";
+            System.out.println(TheLongestedPalindrome.find(source));
+        }
 
-        String source = "aacbaabcbebcbaabcjkl";
-        System.out.println(TheLongestedPalindrome.find(source));
+        public static String find(String source) {
+
+            int length = source.length();
+            if (length < 2) {
+                return "";
+            }
+
+            int start = 0;
+            int end = 0;
+            if (source.charAt(0) == source.charAt(1)) { // 不想每次都要判断是不是>2
+                start = 0;
+                end = 2;
+            }
+            int max = end - start;
+
+            int index = 2;
+            int match;
+
+            while (index < length) {
+                match = index - 1;
+                if (source.charAt(index) != source.charAt(match)) {// 判断第一个是不是相等
+                    match--; // 如果不相等, 匹配下一个
+                }
+                // ! 这里忘记了, 也需要添加一个校验
+                while ((index < length )&& (match >=0) && (source.charAt(index) == source.charAt(match))) {
+                    //一直匹配, 直到不同为止.
+                    index++;
+                    match--;
+                }
+
+                int len = index - match - 2; //计算长度. 如果没有匹配成功, len=0
+                if (len > max) { // max初始值为0. 如果比当前长, 存储.
+                    max = len;
+                    end = --index; // index 回退一个
+                    start = match + 1;
+                }
+                index++; // 继续下一个.
+            }
+
+            return source.substring(start, end);
+        }
+
     }
-
-    public static String find(String source) {
-
-        int length = source.length();
-        if (length < 2) {
-            return "";
-        }
-
-        int start = 0;
-        int end = 0;
-        if (source.charAt(0) == source.charAt(1)) { // 不想每次都要判断是不是>2
-            start = 0;
-            end = 2;
-        }
-        int max = end - start;
-
-        int index = 2;
-        int match;
-
-        while (index < length) {
-            match = index - 1;
-            if (source.charAt(index) != source.charAt(match)) {// 判断第一个是不是相等
-                match--; // 如果不相等, 匹配下一个
-            }
-            // ! 这里忘记了, 也需要添加一个校验
-            while ((index < length )&& (match >=0) && (source.charAt(index) == source.charAt(match))) {
-                //一直匹配, 直到不同为止.
-                index++;
-                match--;
-            }
-
-            int len = index - match - 2; //计算长度. 如果没有匹配成功, len=0
-            if (len > max) { // max初始值为0. 如果比当前长, 存储.
-                max = len;
-                end = --index; // index 回退一个
-                start = match + 1;
-            }
-            index++; // 继续下一个.
-        }
-
-        return source.substring(start, end);
-    }
-
-}
 }
 
 
@@ -136,6 +136,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxXXXXXXXXXXXXXXXXX
 今天把程序更新了下, 找出所有的回文字符串, 以及最长的子串:
 
 {
+    
     package com.yiru.study.algorithms.strings;
 
     public class TheLongestedPalindrome {
@@ -202,34 +203,19 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxXXXXXXXXXXXXXXXXX
 输出:
 
 aa
-
 baab
-
 cbaabc
-
 bcb
-
 beb
-
 cbebc
-
 bcbebcb
-
 abcbebcba
-
 aabcbebcbaa
-
 baabcbebcbaab
-
 cbaabcbebcbaabc
-
 bcb
-
 aa
-
 baab
-
 cbaabc
-
 MAX: cbaabcbebcbaabc
 
