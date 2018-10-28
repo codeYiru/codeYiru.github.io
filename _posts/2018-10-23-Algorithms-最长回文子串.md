@@ -123,7 +123,113 @@ cbaabcbebcbaabc
 
 
 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxXXXXXXXXXXXXXXXXX
+
+2018.10.28 更新
+
+其实上面的程序是有bug的.
+1. subString(start, end) 截取的字符串为: str[start, end-1];
+
+—— 所以, index不能-1;
 
 
+今天把程序更新了下, 找出所有的回文字符串, 以及最长的子串:
 
+{
+    package com.yiru.study.algorithms.strings;
+
+    public class TheLongestedPalindrome {
+
+        public static void main(String[] args) {
+
+            String source = "aacbaabcbebcbaabcjkl";
+    //        String source = "abaabaab";
+            System.out.println("MAX: " + TheLongestedPalindrome.find(source));
+
+        }
+
+        public static String find(String source) {
+
+            int length = source.length();
+            if (length < 2) {
+                return "";
+            }
+
+            boolean check = false;
+
+            int base = 2;
+            int index = base;
+            int match;
+            int start = 0;
+            int end = 0;
+            int max = 0;
+
+            while (base < length) {
+                index = base;
+                match = index - 1;
+                if (source.charAt(index) != source.charAt(match)) {
+                    match--;
+                }
+
+                while (!((index == length )|| (match <0)) && (source.charAt(index) == source.charAt(match))) {
+                    if(!check){
+                        check = true;
+                    }
+                    System.out.println(source.substring(match, index+1));
+                    match --;
+                    index ++;
+                }
+
+                if(check){
+                    int len = index - match + 1;
+                    if(len> max){
+                        start = match+1;
+                        end = index-1;
+                        max = len;
+                    }
+                    check = false;
+                }
+
+                base++;
+            }
+
+            return source.substring(start, end+1);
+        }
+    }
+}
+
+
+输出:
+
+aa
+
+baab
+
+cbaabc
+
+bcb
+
+beb
+
+cbebc
+
+bcbebcb
+
+abcbebcba
+
+aabcbebcbaa
+
+baabcbebcbaab
+
+cbaabcbebcbaabc
+
+bcb
+
+aa
+
+baab
+
+cbaabc
+
+MAX: cbaabcbebcbaabc
 
