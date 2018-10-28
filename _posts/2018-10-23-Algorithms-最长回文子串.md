@@ -44,7 +44,7 @@ tags:
 
 不对不对, 可以不用栈,只要用一直遍历就可以, 需要两个指针记录位置, 一个用来遍历, 一个用来匹配.
 
-{
+
     
     package com.yiru.study.algorithms.strings;
     public class TheLongestedPalindrome {
@@ -98,7 +98,7 @@ tags:
         }
 
     }
-}
+
 
 
 input:aacbaabcbebcbaabcjkl
@@ -106,11 +106,11 @@ input:aacbaabcbebcbaabcjkl
 output:cbaabcbebcbaab
 
 回文字符串:
-aa
+    aa
 
-cbaabc
+    cbaabc
 
-bcb
+    bcb
 
 cbaabcbebcbaabc
 
@@ -135,7 +135,6 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxXXXXXXXXXXXXXXXXX
 
 今天把程序更新了下, 找出所有的回文字符串, 以及最长的子串:
 
-{
     
     package com.yiru.study.algorithms.strings;
 
@@ -197,25 +196,25 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxXXXXXXXXXXXXXXXXX
             return source.substring(start, end+1);
         }
     }
-}
+
 
 
 输出:
 
-aa
-baab
-cbaabc
-bcb
-beb
-cbebc
-bcbebcb
-abcbebcba
-aabcbebcbaa
-baabcbebcbaab
-cbaabcbebcbaabc
-bcb
-aa
-baab
-cbaabc
-MAX: cbaabcbebcbaabc
+    aa
+    baab
+    cbaabc
+    bcb
+    beb
+    cbebc
+    bcbebcb
+    abcbebcba
+    aabcbebcbaa
+    baabcbebcbaab
+    cbaabcbebcbaabc
+    bcb
+    aa
+    baab
+    cbaabc
+    MAX: cbaabcbebcbaabc
 
